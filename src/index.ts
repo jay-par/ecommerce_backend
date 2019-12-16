@@ -1,11 +1,11 @@
-const Koa = require('koa');
-const Router = require('koa-router');
-const { getProducts } = require('./apis/mongo');
+import * as Koa from 'koa';
+import * as Router from 'koa-router';
+import { getProducts } from './apis/mongo';
 
 const app = new Koa();
 const router = new Router();
 
-router.get('/product', async (ctx: any) => {
+router.get('/product', async ctx => {
   const response = await getProducts();
   ctx.body = response;
 });

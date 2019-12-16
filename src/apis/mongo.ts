@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { Product } = require('../models/product');
+import * as mongoose from 'mongoose';
+import Product from '../models/product';
 
 mongoose.connect('mongodb://ecom_user:password123@ds255728.mlab.com:55728/heroku_1kj197vx', {
   useNewUrlParser: true
