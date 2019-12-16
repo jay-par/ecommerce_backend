@@ -8,12 +8,10 @@ mongoose.connect('mongodb://ecom_user:password123@ds255728.mlab.com:55728/heroku
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('COnencted');
+  console.log('Connected to MongoDB');
 });
 
-export const getProducts = () => {
+export const getProducts = async () => {
   console.log('Getting those products');
-  Product.find(function(err: any, products: any) {
-    console.log('products', products);
-  });
+  return await Product.find({});
 };
