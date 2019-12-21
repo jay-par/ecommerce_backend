@@ -1,14 +1,12 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
-import { getProducts } from './apis/mongo';
+
+import { getProductsRoute } from './routes/products';
 
 const app = new Koa();
 const router = new Router();
 
-router.get('/product', async ctx => {
-  const response = await getProducts();
-  ctx.body = response;
-});
+router.get('/product', getProductsRoute);
 
 app.use(router.routes());
 
