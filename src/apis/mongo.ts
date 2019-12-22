@@ -1,7 +1,9 @@
 import * as mongoose from 'mongoose';
 import Product from '../models/product';
 
-mongoose.connect('mongodb://ecom_user:password123@ds255728.mlab.com:55728/heroku_1kj197vx', {
+import '../utils/env';
+
+mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PW}@${process.env.MONGO_URL}`, {
   useNewUrlParser: true
 });
 
