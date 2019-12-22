@@ -11,8 +11,14 @@ const getProductByIdRoute = async (ctx: Koa.Context) => {
     const productId = ctx.params.productId;
     const product = await getProductById(productId);
     ctx.response.body = product;
-  } catch (e) {
-    ctx.throw(422, 'Invalid payload');
+  } catch (err) {
+    console.error(err);
+
+    if (err instanceof mongoose.Error.CastError) {
+      ctx.throw(400, 'Invalid payload, must be valid Object Id');
+    } else {
+      ctx.throw(422, 'Request unprocessed');
+    }
   }
 };
 
