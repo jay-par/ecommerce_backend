@@ -1,5 +1,5 @@
 import * as Koa from 'koa';
-import { getProducts } from '../apis/mongo';
+import { getProducts, getProductById } from '../apis/mongo';
 
 const getProductsRoute = async (ctx: Koa.Context) => {
   ctx.response.body = await getProducts();
@@ -7,7 +7,8 @@ const getProductsRoute = async (ctx: Koa.Context) => {
 
 const getProductByIdRoute = async (ctx: Koa.Context) => {
   const productId = ctx.params.productId;
-  ctx.response.body = { productId };
+  const product = await getProductById(productId);
+  ctx.response.body = product;
 };
 
 export const productRoutes = {

@@ -12,6 +12,11 @@ db.once('open', function() {
 });
 
 export const getProducts = async () => {
-  console.log('Getting those products');
+  console.log('Getting all those products!');
   return await Product.find({});
+};
+
+export const getProductById = async (productId: String) => {
+  console.log(`Getting product: ${productId}`);
+  return await Product.findById(productId);
 };
