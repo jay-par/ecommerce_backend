@@ -18,7 +18,7 @@ export const getProducts = async () => {
   return await Product.find({});
 };
 
-export const getProductById = async (productId: String) => {
+export const getProductById = async (productId: mongoose.Types.ObjectId) => {
   console.log(`Getting product: ${productId}`);
   return await Product.findById(productId);
 };
