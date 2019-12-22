@@ -1,12 +1,14 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 
-import { getProductsRoute } from './routes/products';
+import { productRoutes } from './routes/products';
 
 const app = new Koa();
 const router = new Router();
 
-router.get('/product', getProductsRoute);
+router.get('/product', productRoutes.getProductsRoute);
+
+router.get('/product/:productId', productRoutes.getProductByIdRoute);
 
 app.use(router.routes());
 
