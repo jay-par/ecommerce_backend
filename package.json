@@ -14,6 +14,7 @@
   },
   "author": "Janne Parviainen",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "koa": "^2.11.0",
     "koa-router": "^7.4.0",
     "mongoose": "^5.8.1"

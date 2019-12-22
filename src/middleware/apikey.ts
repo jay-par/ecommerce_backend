@@ -1,9 +1,9 @@
 import * as Koa from 'koa';
+import '../utils/env';
 
-export const apikey = async (ctx: Koa.Context, next: any) => {
+export const apikeyMiddleware = async (ctx: Koa.Context, next: any) => {
   const apikey: String = ctx.request.headers['x-api-key'];
-  console.log(`Validating apikey: ${apikey}`);
-  if (apikey === 'YES') {
+  if (apikey === process.env.APIKEY) {
     await next();
   } else {
     ctx.throw(401, 'Unauthorized');

@@ -2,13 +2,13 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 
 import { productRoutes } from './routes/products';
-import { apikey } from './middleware/apikey';
+import { apikeyMiddleware } from './middleware/apikey';
 
 const app = new Koa();
 const router = new Router();
 
 // Middlewares
-router.use(apikey);
+router.use(apikeyMiddleware);
 
 // Routes
 router.get('/product', productRoutes.getProductsRoute);
