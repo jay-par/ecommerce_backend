@@ -1,0 +1,1 @@
+web: node --inspect=5858 -r ts-node/register ./src/index.ts
