@@ -14,17 +14,18 @@
   },
   "author": "Janne Parviainen",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "koa": "^2.11.0",
-    "koa-router": "^7.4.0",
-    "mongoose": "^5.8.1",
-    "ts-node": "^8.5.4",
+    "@koa/cors": "^2.2.3",
     "@types/koa": "^2.11.0",
     "@types/koa-router": "^7.0.42",
     "@types/mongoose": "^5.5.34",
     "@types/node": "^12.12.17",
+    "dotenv": "^8.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.19.1",
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.8.1",
+    "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
   },
   "devDependencies": {

@@ -1,20 +1,17 @@
 import * as Koa from 'koa';
-import * as Router from 'koa-router';
+const cors = require('@koa/cors');
 
-import { productRoutes } from './routes/products';
+import ProductRouter from './routes/products';
 import { apikeyMiddleware } from './middleware/apikey';
 
-const app = new Koa();
-const router = new Router();
+const app: Koa = new Koa();
+app.use(cors());
 
 // Middlewares
-router.use(apikeyMiddleware);
+app.use(apikeyMiddleware);
 
 // Routes
-router.get('/product', productRoutes.getProductsRoute);
-router.get('/product/:productId', productRoutes.getProductByIdRoute);
-
-app.use(router.routes());
+app.use(ProductRouter);
 
 const PORT = process.env.PORT || 3010;
 app.listen(PORT, () => {
